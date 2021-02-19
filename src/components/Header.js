@@ -2,24 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Logo from '../assets/checklist.svg';
 import { IoMdAdd, IoMdRemove } from 'react-icons/io';
+
 const Header = ({ name, showAdd, onAdd }) => {
   return (
-    <header class="header">
-      <div class="nav-header">
+    <header className="header">
+      <div className="nav-header">
         <span></span>
-        <span onClick={onAdd}>{
-          showAdd ? <IoMdRemove style={{color:'red',cursor: 'pointer'}} onClick={onAdd}/> : <IoMdAdd style={{color:'green',cursor: 'pointer'}} onClick={onAdd}/>
-        }
+        <span onClick={onAdd}>
+          {showAdd ? (
+            <IoMdRemove
+              style={{ color: 'red', cursor: 'pointer' }}
+              onClick={onAdd}
+            />
+          ) : (
+            <IoMdAdd
+              style={{ color: 'green', cursor: 'pointer' }}
+              onClick={onAdd}
+            />
+          )}
         </span>
       </div>
-      <div class="nav-user">
-         <div class="user-image">
+      <div className="nav-user">
+        <div className="user-image">
           <img src={Logo} alt="React Logo" />
         </div>
-        <div class="user-info">
-          <h4 class="user-name">{name}</h4>
+        <div className="user-info">
+          <h4 className="user-name">{name}</h4>
         </div>
-       
       </div>
     </header>
   );

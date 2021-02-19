@@ -53,10 +53,14 @@ body {
 }
 
 .header {
-  padding: 1.5rem 1rem 0.5rem;
+  padding: 1.1rem 1rem 0.2rem;
   background: #f9be7c;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .nav-header {
@@ -69,7 +73,7 @@ body {
   display: flex;
   align-items: center;
   position: relative;
-  margin: 1.3rem 0.5rem 0.4rem;
+  margin: 1rem 0.5rem 0.4rem;
 }
 
 .user-image {
@@ -159,6 +163,15 @@ body {
 
 .tasks {
   margin: 0rem 0px 0.2rem;
+  cursor: pointer;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  .icons {
+    position: relative;
+    right: -2rem;
+  }
 }
 
 .task {
@@ -294,4 +307,74 @@ body {
     font-size: 0.4rem;
     color: lighten($container, 1);
   }
+}
+
+.add-form {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-control-check label {
+  flex: 1;
+}
+
+.form-control-check input {
+  flex: 2;
+  height: 20px;
+}
+label {
+  font-size: 0.8rem;
+  color: #253a50;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+.btn {
+  display: inline-block;
+  background: #f9be7c;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.5rem;
+  color: #6f7a85;
+  font-weight: lighter;
+}
+
+.about {
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: #253a50;
+  padding: 0.8rem 1rem 0.5rem;
 }
