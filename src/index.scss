@@ -1,0 +1,343 @@
+/*--------------------------------------*/
+$container: #fff9ec;
+$black: #253a50;
+$box-shadow: #{rgba(darken($container, 20%), 0.3)};
+$light-green: #007b83;
+$todo: #e46472;
+$inProgress: #f8bf7c;
+$done: #6488e4;
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+/*--------------------------------------*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+html {
+  font-size: 3vmin;
+  font-family: 'Open Sans', sans-serif;
+}
+/*--------------------------------------*/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to right bottom,
+    #fee8c1 10%,
+    #ffeeca 50%,
+    #feeac2
+  );
+}
+
+.container {
+  width: 13rem;
+  background: $container;
+  height: 27rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8vmin 6vmin $box-shadow;
+  overflow: hidden;
+}
+
+.header {
+  padding: 1.5rem 1rem 0.5rem;
+  background: #f9be7c;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ham-burger {
+  height: 0.1rem;
+  width: 0.8rem;
+  background: $black;
+  position: relative;
+  cursor: pointer;
+  &::after,
+  &::before {
+    content: '';
+    background: $black;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  &::before {
+    top: -0.2rem;
+    bottom: 0.2rem;
+  }
+  &::after {
+    top: 0.2rem;
+    bottom: -0.2rem;
+  }
+}
+
+.search {
+  height: 0.6rem;
+  width: 0.6rem;
+  background: transparent;
+  border: 0.12rem solid $black;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  &::before {
+    content: '';
+    position: absolute;
+    height: 0.35rem;
+    width: 0.1rem;
+    top: 0.4rem;
+    background: $black;
+    left: 0.5rem;
+    right: 0;
+    transform: rotate(0.87turn);
+  }
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 1.3rem 0.5rem 0.4rem;
+}
+
+.user-image {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 1.5rem;
+  border-top: 0.22rem solid #e46473;
+  border-right: 0.22rem solid #e46473;
+  border-bottom: 0.22rem solid #e46473;
+  border-left: 0.22rem solid transparent;
+  border-radius: 50%;
+  padding: 0.2rem;
+  transform: rotate(50deg);
+  img {
+    width: 100%;
+    margin: 0rem;
+    border-radius: 50%;
+    transform: rotate(-50deg);
+  }
+}
+
+.user-info {
+  line-height: 0.9rem;
+  .user-name {
+    font-size: 0.8rem;
+    color: $black;
+  }
+  .user-role {
+    font-size: 0.6rem;
+    color: #6d6458;
+  }
+}
+
+.task-content {
+  padding: 0.8rem 1rem 0.5rem;
+}
+
+.title {
+  font-size: 0.8rem;
+  font-weight: unset;
+  color: $black;
+}
+
+.task-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .calendar-icon {
+    height: 2rem;
+    width: 2rem;
+    background: $light-green;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+    }
+    &::before {
+      height: 0.3rem;
+      width: 0.8rem;
+      background: transparent;
+      top: 0.7rem;
+      left: 0.6rem;
+      z-index: 1;
+      border: 0.1rem solid #fff9eb;
+      border-top-left-radius: 0.1rem;
+      border-top-right-radius: 0.1rem;
+    }
+    &::after {
+      height: 0.4rem;
+      width: 0.8rem;
+      background: transparent;
+      top: 1rem;
+      left: 0.6rem;
+      z-index: 1;
+      border: 0.1rem solid #fff9eb;
+      border-top: 0;
+      border-bottom-left-radius: 0.1rem;
+      border-bottom-right-radius: 0.1rem;
+    }
+  }
+}
+
+.tasks {
+  margin: 0rem 0px 0.2rem;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.task-icon {
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.7rem;
+  &.to-do {
+    background: $todo;
+  }
+  &.in-progress {
+    background: $inProgress;
+  }
+  &.done {
+    background: $done;
+  }
+  svg {
+    fill: #fff;
+  }
+}
+
+.task-info {
+  line-height: 0.7rem;
+}
+
+.task-title {
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: $black;
+}
+
+.task-status {
+  font-size: 0.5rem;
+  color: #6f7a85;
+  font-weight: lighter;
+
+  .task-queue {
+    position: relative;
+    margin-right: 0.5rem;
+    &::after {
+      content: '\25cf';
+      position: absolute;
+      top: -0.1rem;
+      right: -0.5rem;
+    }
+  }
+}
+
+.projects-content {
+  padding: 0rem 1rem 0.5rem;
+}
+.projects {
+  padding: 0.6rem 0rem 0rem;
+  display: flex;
+  flex-wrap: wrap;
+  height: 8.9rem;
+  // overflow-y: scroll;
+  // to hide scroll bar
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
+}
+
+.project {
+  height: 6rem;
+  width: 5.1rem;
+  margin: 0 0.7rem 1rem 0;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 0.5rem;
+  &.project:nth-child(even) {
+    margin-right: 0;
+  }
+  &.light-green {
+    background: $light-green;
+  }
+  &.to-do {
+    background: $todo;
+  }
+  &.in-progress {
+    background: $inProgress;
+  }
+  &.done {
+    background: $done;
+  }
+}
+
+.percentage-bar {
+  height: 2.5rem;
+  width: 2.5rem;
+  background: transparent;
+  border-top: 0.2rem solid #fff9ec;
+  border-right: 0.2rem solid #fff9ec;
+  border-bottom: 0.2rem solid #fff9ec;
+  border-left: 0.2rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  position: relative;
+  margin-left: 0.4rem;
+  margin-bottom: auto;
+  transform: rotate(calc((var(--data-percentage)) * 1deg));
+  &::before {
+    content: attr(data-percentage) '%';
+    position: absolute;
+    color: $container;
+    font-size: 0.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--data-percentage) * -1deg));
+    font-weight: bold;
+  }
+}
+
+.project-status {
+  line-height: 0.7rem;
+  .project-title {
+    color: $container;
+    font-size: 0.6rem;
+    font-weight: bold;
+  }
+  .project-duration {
+    font-size: 0.4rem;
+    color: lighten($container, 1);
+  }
+}
