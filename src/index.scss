@@ -168,16 +168,16 @@ body {
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  .icons {
-    position: relative;
-    right: -2rem;
-  }
 }
-
+.icons {
+  margin-left: auto;
+  margin-right: 0;
+}
 .task {
   display: flex;
   align-items: center;
   margin-bottom: 0.6rem;
+  cursor: pointer;
 }
 
 .task-icon {

@@ -48,8 +48,8 @@ router.post('/', (req, res, next) => {
     .then((result) => {
       console.log(result);
       res.status(201).json({
-        message: 'Created product successfully',
-        createdProduct: {
+        message: 'Created task successfully',
+        createdTask: {
           name: req.body.name,
           dt: req.body.dt,
           reminder: req.body.reminder,
@@ -88,13 +88,15 @@ router.get('/:taskId', (req, res, next) => {
     });
 });
 
-router.delete('/:taskId', (req, res, next) => {
-  const id = req.params.productId;
-  Task.remove({ _id: id })
+router.patch('/:taskId', (req, res, next) => {
+  const id = req.params.taskId; //passing identifer
+
+  Task.updateMany({ _id: id }, { $set: req.body }) //using ID to update
     .exec()
     .then((result) => {
-      result.status(200).json({
-        message: 'Task deleted',
+      res.status(200).json({
+        result,
+        message: 'Product updated',
       });
     })
     .catch((err) => {
@@ -104,4 +106,22 @@ router.delete('/:taskId', (req, res, next) => {
       });
     });
 });
+
+router.delete('/:taskId', (req, res, next) => {
+  const id = req.params.taskId;
+  Task.remove({ _id: id })
+    .exec()
+    .then((result) => {
+      res.status(200).json({
+        message: 'Product deleted',
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+});
+
 module.exports = router;

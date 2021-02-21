@@ -7,4 +7,4 @@ const taskSchema = mongoose.Schema({
   reminder: { type: Boolean, required: true },
 });
 
-module.exports = mongoose.model('Product', taskSchema);
+module.exports = mongoose.model('Task', taskSchema);

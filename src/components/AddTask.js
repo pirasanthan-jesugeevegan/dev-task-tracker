@@ -1,17 +1,17 @@
 import { useState } from 'react';
 
 const AddTask = ({ onAdd }) => {
-  const [text, setText] = useState('');
-  const [day, setDay] = useState('');
+  const [name, setName] = useState('');
+  const [dt, setDay] = useState('');
   const [reminder, setReminder] = useState(false);
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!text) {
+    if (!name) {
       alert('Please add a task');
       return;
     }
-    onAdd({ text, day, reminder });
-    setText('');
+    onAdd({ name, dt, reminder });
+    setName('');
     setDay('');
     setReminder('');
   };
@@ -23,8 +23,8 @@ const AddTask = ({ onAdd }) => {
           <input
             type="text"
             placeholder="Add Task"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
 
@@ -33,7 +33,7 @@ const AddTask = ({ onAdd }) => {
           <input
             type="text"
             placeholder="Add Day & Time"
-            value={day}
+            value={dt}
             onChange={(e) => setDay(e.target.value)}
           />
         </div>
@@ -47,12 +47,7 @@ const AddTask = ({ onAdd }) => {
             onChange={(e) => setReminder(e.currentTarget.checked)}
           />
         </div>
-        <input
-          className="btn btn-block"
-          type="submit"
-          value="Save Task"
-          onClick={console.log(reminder)}
-        />
+        <input className="btn btn-block" type="submit" value="Save Task" />
       </form>
     </section>
   );

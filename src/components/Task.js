@@ -3,10 +3,7 @@ import { MdDeleteForever } from 'react-icons/md';
 import { GiAlarmClock } from 'react-icons/gi';
 const Task = ({ task, onDelete, onToggle }) => {
   return (
-    <div
-      className={`task ${task.reminder ? 'reminder' : ''}`}
-      onDoubleClick={() => onToggle(task.id)}
-    >
+    <div className="task" onDoubleClick={() => onToggle(task._id)}>
       <div className="tasks">
         <div className="task">
           <div className="task-icon to-do">
@@ -15,24 +12,21 @@ const Task = ({ task, onDelete, onToggle }) => {
             </svg>
           </div>
           <div className="task-info">
-            <p className="task-title">{task.text}</p>
+            <p className="task-title">{task.name}</p>
             <div className="task-status">
-              <span className="task-queue">{task.day}</span>
-              <span className="task-progress">{task.id}</span>
+              <span className="task-queue">{task.dt}</span>
+              {/* <span className="task-progress">{task.id}</span> */}
             </div>
           </div>
-          {task.reminder ? (
-            <GiAlarmClock style={{ color: '#e46472' }} className="icons" />
-          ) : (
-            ''
-          )}
-
-          <MdDeleteForever
-            style={{ color: '#e46472' }}
-            className="icons"
-            onClick={() => onDelete(task.id)}
-          />
         </div>
+      </div>
+      <div className="icons">
+        {task.reminder ? <GiAlarmClock style={{ color: '#e46472' }} /> : ''}
+
+        <MdDeleteForever
+          style={{ color: '#e46472' }}
+          onClick={() => onDelete(task._id)}
+        />
       </div>
     </div>
   );

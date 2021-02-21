@@ -7,12 +7,12 @@ const Tasks = ({ tasks, onDelete, onToggle }) => {
           <h4 className="title">My tasks</h4>
         </div>
         <br></br>
-        {tasks.map((task) => (
+        {tasks.map((task, index) => (
           <Task
-            key={task.id}
+            key={index}
             task={task}
             onDelete={onDelete}
-            onToggle={() => onToggle(task.id)}
+            onToggle={() => onToggle(task._id)}
           />
         ))}
       </section>
