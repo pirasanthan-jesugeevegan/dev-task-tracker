@@ -14,8 +14,6 @@ mongoose.connect(
 
 mongoose.Promise = global.Promise;
 
-app.use(express.status('/build'));
-
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
