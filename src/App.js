@@ -48,6 +48,7 @@ function App() {
     const data = await res.json();
 
     setTasks((tasks) => [...tasks, data.createdTask]);
+    setAddTask(false);
   };
 
   // Delete Task

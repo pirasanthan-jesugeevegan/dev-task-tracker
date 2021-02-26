@@ -42,16 +42,16 @@ body {
     #feeac2
   );
 }
-
-.container {
-  width: 13rem;
-  background: $container;
-  height: 27rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 8vmin 6vmin $box-shadow;
-  overflow: hidden;
+@media screen and (min-width: 769px) {
+  .container {
+    width: 13rem;
+    background: $container;
+    height: 27rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 8vmin 6vmin $box-shadow;
+    overflow: hidden;
+  }
 }
-
 .header {
   padding: 1.1rem 1rem 0.2rem;
   background: #f9be7c;
@@ -377,4 +377,20 @@ footer {
   font-weight: bold;
   color: #253a50;
   padding: 0.8rem 1rem 0.5rem;
+}
+@media screen and (max-width: 769px) {
+  body {
+    display: inline;
+  }
+
+  html {
+    font-size: 1.5rem;
+    background: $container;
+  }
+  .container {
+    height: 27rem;
+    border-radius: 1.5rem;
+
+    overflow: hidden;
+  }
 }
